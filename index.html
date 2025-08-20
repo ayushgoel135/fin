@@ -1581,9 +1581,6 @@
     </div>
 
     <script>
-        // Custom JavaScript implementation without external libraries
-        
-        // DOM Ready Function
         document.addEventListener('DOMContentLoaded', function() {
             // Initialize the application
             initApp();
@@ -1725,7 +1722,6 @@
                     
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
-                        // Close mobile navigation if open
                         document.getElementById('navbarNav').classList.remove('open');
                         
                         window.scrollTo({
@@ -1767,7 +1763,6 @@
         }
         
         function setupModals() {
-            // Close modals when clicking on close button or outside
             document.querySelectorAll('.modal-close, [data-dismiss="modal"]').forEach(button => {
                 button.addEventListener('click', function() {
                     const modal = this.closest('.modal');
@@ -1797,15 +1792,12 @@
         }
         
         function switchTab(targetId) {
-            // Hide all tab panes
             document.querySelectorAll('.tab-pane').forEach(pane => {
                 pane.classList.remove('active');
             });
-            
-            // Show the selected tab pane
+
             document.getElementById(targetId).classList.add('active');
             
-            // Update active tab button
             document.querySelectorAll('.nav-tab').forEach(tab => {
                 tab.classList.remove('active');
             });
@@ -1915,11 +1907,9 @@
             document.getElementById('trackerLoginAlert').classList.add('d-none');
             document.getElementById('leaderboardLoginAlert').classList.add('d-none');
             document.getElementById('leaderboardContent').classList.remove('d-none');
-            
-            // Update dashboard with daily view by default
+
             updateDashboardCharts('daily');
-            
-            // Update leaderboard
+
             updateLeaderboard();
         }
         
@@ -1946,13 +1936,11 @@
             `;
             
             toastContainer.appendChild(toast);
-            
-            // Add event listener to close button
+
             toast.querySelector('.toast-close').addEventListener('click', function() {
                 toast.remove();
             });
             
-            // Auto remove after 5 seconds
             setTimeout(() => {
                 if (toast.parentNode) {
                     toast.remove();
@@ -1969,8 +1957,7 @@
                     const carType = document.getElementById('carType').value;
                     const publicTransport = parseFloat(document.getElementById('publicTransport').value) || 0;
                     const flights = parseFloat(document.getElementById('flights').value) || 0;
-                    
-                    // Simple calculation (these are just example values)
+
                     let carFactor = 0;
                     switch(carType) {
                         case 'petrol': carFactor = 0.2; break;
@@ -2080,7 +2067,6 @@
             if (total === 0) {
                 tipsHTML = '<div class="alert alert-info">Calculate your carbon footprint to receive personalized tips!</div>';
             } else {
-                // Find the highest impact category
                 const categories = Object.keys(impacts);
                 let highestCategory = categories[0];
                 let highestImpact = impacts[highestCategory];
@@ -2091,8 +2077,7 @@
                         highestImpact = impacts[category];
                     }
                 }
-                
-                // Generate tips based on highest impact category
+
                 switch(highestCategory) {
                     case 'transport':
                         tipsHTML = `
@@ -2646,8 +2631,7 @@
             logout: function() {
                 localStorage.removeItem('carbonEveCurrentUser');
             },
-            
-            // For debugging: Clear all data
+
             clearAllData: function() {
                 localStorage.removeItem('carbonEveUsers');
                 localStorage.removeItem('carbonEveFootprints');
@@ -2656,4 +2640,5 @@
         };
     </script>
 </body>
+
 </html>
